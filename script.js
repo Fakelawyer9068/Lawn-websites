@@ -1,7 +1,7 @@
 const lawnSizeSelect = document.getElementById('lawnSize');
 const daySelect = document.getElementById('day');
 const addressInput = document.getElementById('address');
-const phoneInput = document.getElementById('phone'); // Added this line
+const phoneInput = document.getElementById('phone');
 const calculateButton = document.getElementById('calculateButton');
 const totalPriceSpan = document.getElementById('totalPrice');
 
@@ -9,7 +9,7 @@ const confirmationSection = document.getElementById('confirmationSection');
 const confirmedLawnSizeSpan = document.getElementById('confirmedLawnSize');
 const confirmedDaySpan = document.getElementById('confirmedDay');
 const confirmedAddressSpan = document.getElementById('confirmedAddress');
-const confirmedPhoneSpan = document.getElementById('confirmedPhone'); // Added this line
+const confirmedPhoneSpan = document.getElementById('confirmedPhone');
 const confirmedTotalPriceSpan = document.getElementById('confirmedTotalPrice');
 const confirmOrderButton = document.getElementById('confirmOrderButton');
 
@@ -22,20 +22,19 @@ calculateButton.addEventListener('click', () => {
     calculatedPrice = calculatePrice();
     const selectedDay = daySelect.value;
     const enteredAddress = addressInput.value;
-    const enteredPhone = phoneInput.value; // Get the entered phone number
+    const enteredPhone = phoneInput.value;
 
     confirmationSection.style.display = 'block';
     confirmedLawnSizeSpan.textContent = lawnSizeSelect.value;
     confirmedDaySpan.textContent = selectedDay;
     confirmedAddressSpan.textContent = enteredAddress;
-    confirmedPhoneSpan.textContent = enteredPhone; // Display the entered phone number
+    confirmedPhoneSpan.textContent = enteredPhone;
     confirmedTotalPriceSpan.textContent = calculatedPrice.toFixed(2);
 });
 
 confirmOrderButton.addEventListener('click', () => {
-    // You can add email sending or other processing here
-    // For demonstration purposes, this just shows an alert
-    alert('Order confirmed!');
+    // Redirect to "finished.html"
+    window.location.href = 'finished.html';
 });
 
 function calculatePrice() {
