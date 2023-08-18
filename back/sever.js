@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const cors = require('cors');
 
 const app = express();
 
@@ -76,9 +77,10 @@ app.use(express.static('C:/Users/Fake_lawyer012/Desktop/Price clac/front'));
 app.get('/inquiries', (req, res) => {
   res.sendFile('C:/Users/Fake_lawyer012/Desktop/Price clac/front/inquiries.html');
 });
-
+app.use(cors());
 const PORT = process.env.PORT || 3011;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
+//test

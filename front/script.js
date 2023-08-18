@@ -47,7 +47,11 @@ confirmOrderButton.addEventListener('click', () => {
         totalPrice: confirmedTotalPrice,
     };
 
-    fetch('/submit-inquiry', {
+    // Replace 'https://your-backend-url' with the actual URL of your deployed backend
+    const backendBaseUrl = 'https://shrouded-smooth-belief.glitch.me/sever.js';
+
+    // Submit inquiry to backend
+    fetch(`${backendBaseUrl}/submit-inquiry`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -63,17 +67,17 @@ confirmOrderButton.addEventListener('click', () => {
         console.error('Error:', error);
         // Optionally show an error message to the user
     });
-    // Add this code to your frontend JavaScript
-fetch('/get-inquiries')
-.then(response => response.json())
-.then(data => {
-  console.log(data); // Print the retrieved data to the browser console
-  // You can now use this data to update your frontend UI
-})
-.catch(error => {
-  console.error('Error fetching inquiries:', error);
-});
 
+    // Fetch inquiries from backend
+    fetch(`${backendBaseUrl}/get-inquiries`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Print the retrieved data to the browser console
+        // You can now use this data to update your frontend UI
+    })
+    .catch(error => {
+        console.error('Error fetching inquiries:', error);
+    });
 
     // Redirect to "finished.html"
     window.location.href = 'finished.html';
@@ -109,3 +113,5 @@ function updatePrice() {
         totalPriceSpan.style.display = 'none';
     }
 }
+
+// ... (remaining functions)

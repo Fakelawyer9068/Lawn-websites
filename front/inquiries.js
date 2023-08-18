@@ -1,7 +1,7 @@
 window.onload = function () {
   const inquiriesDiv = document.getElementById('inquiries');
 
-  fetch('/get-inquiries')
+  fetch('/get-inquiries') // Use a relative URL
     .then(response => response.json())
     .then(inquiries => {
       inquiries.forEach((inquiry, index) => {
